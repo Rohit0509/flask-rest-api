@@ -11,7 +11,6 @@ pipeline{
             steps{
                 sh 'ls -l'
                 sh '.  ./venv/bin/activate'
-                sh 'apt-get install libpq-dev'
                 sh 'pip3 install -r requirements.txt'
                 sh 'python manage.py db upgrade'
             }
