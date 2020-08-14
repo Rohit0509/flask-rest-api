@@ -3,7 +3,6 @@ pipeline{
     stages{
         stage('Install'){
             steps{
-               sh 'pip3 install virtualenv' 
                sh 'virtualenv -p python3 venv'
                sh 'pip3 install autoenv'
                sh 'source venv/bin/activate'
