@@ -1,3 +1,4 @@
+#!/bin/bash
 pipeline{
     agent  any 
     stages{
@@ -10,7 +11,7 @@ pipeline{
         stage('Build'){
             steps{
                 sh 'ls -l'
-                sh 'sudo ./venv/bin/activate'
+                sh 'source venv/bin/activate'
                 sh 'pip3 install -r requirements.txt'
                 sh 'python manage.py db upgrade'
             }
