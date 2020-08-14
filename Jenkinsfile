@@ -10,7 +10,7 @@ pipeline{
         stage('Build'){
             steps{
                 sh 'ls -l'
-                sh './venv/bin/activate'
+                sh 'sudo ./venv/bin/activate'
                 sh 'pip3 install -r requirements.txt'
                 sh 'python manage.py db upgrade'
             }
