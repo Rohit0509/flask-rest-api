@@ -5,11 +5,11 @@ pipeline{
             steps{
                sh 'virtualenv venv'
                sh 'pip3 install autoenv'
-               sh 'source venv/bin/activate'
             }
         }
         stage('Build'){
             steps{
+                sh 'source venv/bin/activate'
                 sh 'pip3 install -r requirements.txt'
                 sh 'python manage.py db upgrade'
             }
