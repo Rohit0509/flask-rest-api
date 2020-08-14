@@ -1,7 +1,7 @@
 pipeline{
     agent  any 
     stages{
-        stage('Build'){
+        stage('Install'){
             steps{
                sh 'virtualenv -p python3 venv'
                sh 'pip install autoenv'
