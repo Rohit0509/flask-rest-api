@@ -32,7 +32,12 @@ def create_app(config_name):
     def bucketlists():
         # get the access token
         auth_header = request.headers.get('Authorization')
-        access_token = auth_header.split(" ")[1]
+        if auth_header:
+            print("here ===>>. ")
+            access_token = auth_header.split(" ")[1]
+        else:
+            print("here ===>>. else ======================>>>>  ")
+            access_token = None
 
         if access_token:
             user_id = User.decode_token(access_token)
@@ -77,6 +82,10 @@ def create_app(config_name):
                     'message': message
                 }
                 return make_response(jsonify(response)), 401
+        else :
+            return make_response(jsonify({
+                'msg' : 'No user found'
+            })), 401         
 
     @app.route('/bucketlists/<int:id>', methods=['GET', 'PUT', 'DELETE'])
     def bucketlist_manipulation(id, **kwargs):
